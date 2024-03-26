@@ -2,6 +2,20 @@ pipeline {
     agent {
         label 'mavenbuilder'
     }
+    triggers {
+        $class: 'GhprbTrigger',
+        adminlist: 'rgeorgegrid', 
+        whitelist: '', 
+        orgslist: '', 
+        cron: '', 
+        triggerPhrase: 'retest',
+        onlyTriggerPhrase: false, 
+        useGitHubHooks: true, 
+        permitAll: false, 
+        githubPush {
+            branches('*/main')
+        }
+    }
     environment {
         DOCKER_IMAGE_NAME = 'rgeorgegrid'
         DOCKER_REPO = 'mr'
