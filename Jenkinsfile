@@ -3,15 +3,16 @@ pipeline {
         label 'mavenbuilder'
     }
     triggers {
-        $class: 'GhprbTrigger',
-        adminlist: 'rgeorgegrid', 
-        whitelist: '', 
-        orgslist: '', 
-        cron: '', 
-        triggerPhrase: 'retest',
-        onlyTriggerPhrase: false, 
-        useGitHubHooks: true, 
-        permitAll: false, 
+        GhprbTrigger (
+            adminlist: 'rgeorgegrid', 
+            whitelist: '', 
+            orgslist: '', 
+            cron: '', 
+            triggerPhrase: 'retest',
+            onlyTriggerPhrase: false, 
+            useGitHubHooks: true, 
+            permitAll: false
+        )
         githubPush {
             branches('*/main')
         }
