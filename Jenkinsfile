@@ -5,6 +5,7 @@ pipeline {
     environment {
         DOCKER_IMAGE_NAME = 'rgeorgegrid'
         DOCKER_REPO = 'mr'
+        DOCKER_REPO_MAIN = 'main'
     }
     stages {
         stage ('Checkstyle') {
