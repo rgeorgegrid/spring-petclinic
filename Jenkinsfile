@@ -3,7 +3,7 @@ pipeline {
         label 'mavenbuilder'
     }
     triggers {
-        githubPush
+        githubPush()
     }
     environment {
         DOCKER_IMAGE_NAME = 'rgeorgegrid'
