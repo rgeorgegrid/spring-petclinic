@@ -4,15 +4,6 @@ pipeline {
     }
     triggers {
         githubPush()
-        githubPullRequests(
-            triggerMode: 'HEAVY_HOOKS', 
-            events: [
-                'Pull Request Opened', 
-                'Pull Request Reopened' 
-            ],
-            abortRunning: true, 
-            preStatus: true 
-        )
     }
     environment {
         DOCKER_IMAGE_NAME = 'rgeorgegrid'
