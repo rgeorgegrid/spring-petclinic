@@ -3,7 +3,7 @@ pipeline {
         label 'mavenbuilder'
     }
     triggers {
-        GhprbTrigger (
+        $class: 'GhprbTrigger' (
             adminlist: 'rgeorgegrid', 
             whitelist: '', 
             orgslist: '', 
@@ -13,9 +13,9 @@ pipeline {
             useGitHubHooks: true, 
             permitAll: false
         )
-        githubPush {
+        githubPush (
             branches('*/main')
-        }
+        )
     }
     environment {
         DOCKER_IMAGE_NAME = 'rgeorgegrid'
