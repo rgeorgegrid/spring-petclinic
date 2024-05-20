@@ -11,4 +11,4 @@ COPY --from=build /app/spring-petclinic/target/*.jar /app/spring-petclinic.jar
 
 WORKDIR /app
 
-ENTRYPOINT ["java", "-jar", "spring-petclinic.jar"]
+ENTRYPOINT ["mvn", "spring-boot:run", "-Dspring-boot.run.profiles=mysql"]
