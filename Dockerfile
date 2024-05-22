@@ -11,4 +11,7 @@ COPY --from=build /app/spring-petclinic/target/*.jar /app/spring-petclinic.jar
 
 WORKDIR /app
 
-ENTRYPOINT ["mvn", "spring-boot:run", "-Dspring-boot.run.profiles=mysql"]
+# Verify that the application starts correctly with the specified profile
+# RUN java -jar spring-petclinic.jar --spring.profiles.active=mysql || echo "Application failed to start during build phase"
+
+ENTRYPOINT ["java", "-jar", "spring-petclinic.jar", "--spring.profiles.active=mysql"]
